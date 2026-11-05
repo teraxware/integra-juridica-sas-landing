@@ -10,33 +10,53 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AvisoDePrivacidadRouteImport } from './routes/aviso-de-privacidad'
+import { Route as PoliticaCookiesRouteImport } from './routes/politica-cookies'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AvisoDePrivacidadRoute = AvisoDePrivacidadRouteImport.update({
+  id: '/aviso-de-privacidad',
+  path: '/aviso-de-privacidad',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PoliticaCookiesRoute = PoliticaCookiesRouteImport.update({
+  id: '/politica-cookies',
+  path: '/politica-cookies',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/aviso-de-privacidad': typeof AvisoDePrivacidadRoute
+  '/politica-cookies': typeof PoliticaCookiesRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/aviso-de-privacidad': typeof AvisoDePrivacidadRoute
+  '/politica-cookies': typeof PoliticaCookiesRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/aviso-de-privacidad': typeof AvisoDePrivacidadRoute
+  '/politica-cookies': typeof PoliticaCookiesRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/aviso-de-privacidad' | '/politica-cookies'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/aviso-de-privacidad' | '/politica-cookies'
+  id: '__root__' | '/' | '/aviso-de-privacidad' | '/politica-cookies'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AvisoDePrivacidadRoute: typeof AvisoDePrivacidadRoute
+  PoliticaCookiesRoute: typeof PoliticaCookiesRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +68,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/aviso-de-privacidad': {
+      id: '/aviso-de-privacidad'
+      path: '/aviso-de-privacidad'
+      fullPath: '/aviso-de-privacidad'
+      preLoaderRoute: typeof AvisoDePrivacidadRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/politica-cookies': {
+      id: '/politica-cookies'
+      path: '/politica-cookies'
+      fullPath: '/politica-cookies'
+      preLoaderRoute: typeof PoliticaCookiesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AvisoDePrivacidadRoute: AvisoDePrivacidadRoute,
+  PoliticaCookiesRoute: PoliticaCookiesRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
