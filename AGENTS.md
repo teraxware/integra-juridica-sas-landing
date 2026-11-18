@@ -28,3 +28,7 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+- Theme colors are defined as semantic CSS tokens with a `.dark` override, so every section and legal page shares one theme.
+- The header theme control applies the root theme after hydration and stores only the display preference locally, preserving the static-site architecture.
+- Keep presentation text in `src/content/` and preserve the existing section sequence when redesigning the page.

@@ -8,7 +8,7 @@ export function Faq() {
     <section id="preguntas" className="section-y bg-muted" aria-labelledby="faq-title">
       <div className="container-site max-w-3xl">
         <SectionHeading id="faq-title" title={sectionTitles.faq.title} />
-        <Accordion type="single" collapsible className="rounded-md border border-border bg-background px-6">
+        <Accordion type="single" collapsible className="border-t border-border">
           {faqs.map((f, i) => (
             <AccordionItem key={i} value={`faq-${i}`} className="last:border-b-0">
               <AccordionTrigger className="min-h-11 text-base font-semibold text-primary hover:no-underline">

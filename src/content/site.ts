@@ -22,17 +22,22 @@ export const header = {
   whatsappCta: "Hablar por WhatsApp",
   menuOpen: "Abrir menú",
   menuClose: "Cerrar menú",
+  themeLight: "Activar modo claro",
+  themeDark: "Activar modo oscuro",
+  mainNav: "Principal",
+  mobileNav: "Menú móvil",
 };
 
 export const hero = {
   badge: `Abogados en ${site.city} - Colombia`, // PLACEHOLDER
-  title: "Asesoría jurídica clara para decisiones que no pueden esperar", // PLACEHOLDER
+  title: "Integra Jurídica",
+  statement: "Claridad jurídica. Decisiones conscientes.",
   subtitle:
     "Orientamos a empresas y personas en asuntos comerciales, laborales, tributarios y contractuales, con explicaciones sencillas y costos conocidos desde el inicio.",
   primaryCta: "Consultar por WhatsApp",
   secondaryCta: "Conocer nuestros servicios",
   microcopy: "Respondemos en menos de 24 horas hábiles. Su información es confidencial.", // PLACEHOLDER - verificar el SLA real
-  imageAlt: "Oficina de Integra Jurídica con biblioteca jurídica y escritorio", // PLACEHOLDER - foto real de la oficina
+  imageAlt: "Imagen ilustrativa de una oficina contemporánea con ventanales y arquitectura azul",
 };
 
 export const sectionTitles = {

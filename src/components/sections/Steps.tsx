@@ -9,9 +9,9 @@ export function Steps() {
         <SectionHeading id="pasos-title" title={sectionTitles.steps.title} />
         <ol className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
           {steps.map((s, i) => (
-            <li key={s.title}>
-              <span className="flex size-12 items-center justify-center rounded-full border-2 border-gold bg-background font-serif text-lg font-semibold text-primary">
-                {i + 1}
+            <li key={s.title} className="border-t border-earth/40 pt-5">
+              <span className="font-sans text-4xl font-medium text-earth" aria-hidden="true">
+                0{i + 1}
               </span>
               <h3 className="mt-5 font-sans text-lg font-bold tracking-normal text-primary">{s.title}</h3>
               <p className="mt-2 text-muted-foreground">{s.description}</p>

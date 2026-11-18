@@ -13,7 +13,7 @@ export function Testimonials() {
         <SectionHeading id="testimonios-title" title={sectionTitles.testimonials.title} />
         <div className="grid gap-6 lg:grid-cols-3">
           {testimonials.map((t, i) => (
-            <Card key={i} className="rounded-md p-7 shadow-soft">
+            <Card key={i} className="rounded-none border-0 border-t-2 border-earth bg-transparent p-7 shadow-none">
               <figure>
                 <Quote className="size-6 text-gold" aria-hidden="true" />
                 <blockquote className="mt-4 font-serif text-lg text-foreground">“{t.quote}”</blockquote>

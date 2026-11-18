@@ -57,6 +57,10 @@
   --color-gold-foreground: var(--gold-foreground);
   --color-success: var(--success);
   --color-success-foreground: var(--success-foreground);
+  --color-earth: var(--earth);
+  --color-brand: var(--brand);
+  --color-brand-foreground: var(--brand-foreground);
+  --color-brand-accent: var(--brand-accent);
   --font-serif: "Source Serif 4", Georgia, serif;
   --font-sans: "Manrope", system-ui, sans-serif;
   --shadow-soft: var(--shadow-soft);
@@ -79,18 +83,22 @@
   --card-foreground: oklch(0.22 0.01 265);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.22 0.01 265);
-  --primary: oklch(0.29 0.06 263);
-  --primary-hover: oklch(0.24 0.05 263);
-  --primary-foreground: oklch(0.98 0.003 260);
-  --gold: oklch(0.68 0.1 80);
-  --gold-hover: oklch(0.63 0.1 78);
-  --gold-foreground: oklch(0.24 0.05 263);
+  --primary: oklch(0.288 0.072 248.5);
+  --primary-hover: oklch(0.24 0.061 248.5);
+  --primary-foreground: oklch(1 0 0);
+  --gold: oklch(0.621 0.108 83.4);
+  --gold-hover: oklch(0.57 0.1 83.4);
+  --gold-foreground: oklch(1 0 0);
+  --earth: oklch(0.567 0.064 80.5);
+  --brand: oklch(0.288 0.072 248.5);
+  --brand-foreground: oklch(1 0 0);
+  --brand-accent: oklch(0.939 0.11 102.2);
   --success: oklch(0.51 0.1 165);
   --success-foreground: oklch(1 0 0);
   --secondary: oklch(0.98 0.003 260);
   --secondary-foreground: oklch(0.29 0.06 263);
   --muted: oklch(0.98 0.003 260);
-  --muted-foreground: oklch(0.49 0.025 260);
+  --muted-foreground: oklch(0.507 0.029 234.5);
   --accent: oklch(0.96 0.006 260);
   --accent-foreground: oklch(0.29 0.06 263);
   --destructive: oklch(0.577 0.245 27.325);
@@ -111,8 +119,43 @@
   --sidebar-accent-foreground: oklch(0.29 0.06 263);
   --sidebar-border: oklch(0.92 0.008 260);
   --sidebar-ring: oklch(0.68 0.1 80);
-  --gradient-hero: linear-gradient(100deg, oklch(0.2 0.05 263 / 0.95) 0%, oklch(0.24 0.05 263 / 0.85) 45%, oklch(0.24 0.05 263 / 0.45) 100%);
+  --hero-veil: oklch(1 0 0 / 0.84);
   --shadow-soft: 0 1px 2px oklch(0.29 0.06 263 / 0.04), 0 8px 24px -12px oklch(0.29 0.06 263 / 0.12);
+}
+
+.dark {
+  color-scheme: dark;
+  --background: oklch(0.18 0.03 248.5);
+  --foreground: oklch(0.95 0.008 235);
+  --card: oklch(0.225 0.038 248.5);
+  --card-foreground: var(--foreground);
+  --popover: var(--card);
+  --popover-foreground: var(--foreground);
+  --primary: oklch(0.91 0.029 235);
+  --primary-hover: oklch(0.83 0.04 235);
+  --primary-foreground: oklch(0.288 0.072 248.5);
+  --secondary: oklch(0.27 0.038 248.5);
+  --secondary-foreground: var(--foreground);
+  --muted: oklch(0.205 0.03 248.5);
+  --muted-foreground: oklch(0.76 0.025 234.5);
+  --accent: oklch(0.28 0.035 248.5);
+  --accent-foreground: var(--foreground);
+  --border: oklch(0.35 0.03 248.5);
+  --input: var(--border);
+  --gold: oklch(0.939 0.11 102.2);
+  --gold-hover: oklch(0.87 0.11 102.2);
+  --gold-foreground: oklch(0.288 0.072 248.5);
+  --earth: oklch(0.676 0.046 73.7);
+  --hero-veil: oklch(0.18 0.03 248.5 / 0.9);
+  --ring: var(--gold);
+  --sidebar: var(--background);
+  --sidebar-foreground: var(--foreground);
+  --sidebar-primary: var(--primary);
+  --sidebar-primary-foreground: var(--primary-foreground);
+  --sidebar-accent: var(--accent);
+  --sidebar-accent-foreground: var(--foreground);
+  --sidebar-border: var(--border);
+  --sidebar-ring: var(--ring);
 }
 
 @layer base {
@@ -134,7 +177,7 @@
   h1, h2, h3 {
     font-family: var(--font-serif);
     line-height: 1.2;
-    letter-spacing: -0.02em;
+    letter-spacing: 0;
   }
   :focus-visible {
     outline: 2px solid var(--color-gold);
@@ -157,9 +200,16 @@
 @utility container-site {
   margin-inline: auto;
   width: 100%;
-  max-width: 72rem;
+  max-width: 80rem;
   padding-inline: 1.5rem;
 }
 @utility bg-hero-overlay {
-  background-image: var(--gradient-hero);
+  background-color: var(--hero-veil);
+  clip-path: polygon(0 0, 76% 0, 65% 100%, 0 100%);
+  @media (width < 64rem) { clip-path: none; }
 }
+
+.hero-name { max-width: 10ch; line-height: 1.02; }
+.hero-stage { border-bottom: 1px solid var(--border); }
+.hero-stage > img { animation: reveal-image 900ms ease-out both; }
+@keyframes reveal-image { from { opacity: 0; } to { opacity: 1; } }
