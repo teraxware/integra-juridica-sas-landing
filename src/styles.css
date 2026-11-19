@@ -205,11 +205,34 @@
 }
 @utility bg-hero-overlay {
   background-color: var(--hero-veil);
-  clip-path: polygon(0 0, 76% 0, 65% 100%, 0 100%);
-  @media (width < 64rem) { clip-path: none; }
 }
 
-.hero-name { max-width: 10ch; line-height: 1.02; }
+.hero-name { max-width: none; line-height: 1.08; }
+.hero-layout { min-height: 100svh; padding-block: 5rem 2.5rem; gap: 2rem; }
+.hero-copy { padding-block: 1.5rem; }
+.hero-stats { border-top: 1px solid var(--border); padding-top: 1.75rem; }
+@media (width < 40rem) {
+  .hero-layout { padding-block: 4.5rem 1rem; gap: 1rem; }
+  .hero-copy { padding-block: 0; }
+  .hero-name { margin-top: 1rem; }
+  .hero-statement, .hero-description, .hero-note { margin-top: 0.75rem; }
+  .hero-description { line-height: 1.5; }
+  .hero-actions { margin-top: 1rem; gap: 0.25rem; }
+  .hero-stats { padding-top: 1rem; }
+}
+@media (height < 750px) {
+  .hero-layout { padding-block: 4rem 1.25rem; gap: 1rem; }
+  .hero-copy { padding-block: 0; }
+  .hero-name { margin-top: 1rem; }
+  .hero-statement, .hero-description, .hero-note { margin-top: 1rem; }
+  .hero-actions { margin-top: 1.25rem; }
+}
+@media (width < 40rem) and (height < 750px) {
+  .hero-layout { padding-block: 4.25rem 0.75rem; gap: 0.75rem; }
+  .hero-name { font-size: 2.5rem; margin-top: 0.75rem; }
+  .hero-statement, .hero-description, .hero-note { margin-top: 0.5rem; }
+  .hero-actions { margin-top: 0.75rem; }
+}
 .hero-stage { border-bottom: 1px solid var(--border); }
 .hero-stage > img { animation: reveal-image 900ms ease-out both; }
 @keyframes reveal-image { from { opacity: 0; } to { opacity: 1; } }

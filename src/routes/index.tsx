@@ -1,7 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Header } from "@/components/sections/Header";
 import { Hero } from "@/components/sections/Hero";
-import { TrustBar } from "@/components/sections/TrustBar";
 import { Services } from "@/components/sections/Services";
 import { Steps } from "@/components/sections/Steps";
 import { WhyUs } from "@/components/sections/WhyUs";
@@ -83,10 +82,9 @@ function Index() {
       <a href="#contenido" className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-md focus:bg-background focus:px-4 focus:py-2">
         Saltar al contenido
       </a>
-      <Header />
+      <Header revealOnScroll />
       <main id="contenido">
         <Hero />
-        <TrustBar />
         <Services />
         <Steps />
         <WhyUs />

@@ -9,8 +9,22 @@ import { Logo } from "@/components/sections/Logo";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { Button } from "@/components/ui/button";
 
-export function Header() {
+export function Header({ revealOnScroll = false }: { revealOnScroll?: boolean }) {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const visible = !revealOnScroll || scrolled;
+
+  useEffect(() => {
+    if (!revealOnScroll) return;
+    const onScroll = () => {
+      const next = window.scrollY > 24;
+      setScrolled(next);
+      if (!next) setOpen(false);
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, [revealOnScroll]);
 
   useEffect(() => {
     if (!open) return;
@@ -20,7 +34,7 @@ export function Header() {
   }, [open]);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-border bg-background/95 backdrop-blur">
+    <header inert={!visible} aria-hidden={!visible} className={`${revealOnScroll ? "fixed inset-x-0 transition-[transform,opacity] duration-300 " + (visible ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0 pointer-events-none") : "sticky"} top-0 z-50 border-b border-border bg-background/95 backdrop-blur`}>
       <div className="container-site flex h-20 items-center justify-between gap-3 py-3">
         <Logo />
         <nav aria-label={header.mainNav} className="hidden xl:block">

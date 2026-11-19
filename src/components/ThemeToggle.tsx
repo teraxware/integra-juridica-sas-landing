@@ -10,12 +10,16 @@ export function ThemeToggle() {
     try { preferred = localStorage.getItem("integra-theme") === "dark"; } catch { /* Storage may be unavailable. */ }
     document.documentElement.classList.toggle("dark", preferred);
     setDark(preferred);
+    const syncTheme = () => setDark(document.documentElement.classList.contains("dark"));
+    window.addEventListener("integra-theme-change", syncTheme);
+    return () => window.removeEventListener("integra-theme-change", syncTheme);
   }, []);
 
   function toggleTheme() {
     const next = !dark;
     document.documentElement.classList.toggle("dark", next);
     setDark(next);
+    window.dispatchEvent(new Event("integra-theme-change"));
     try { localStorage.setItem("integra-theme", next ? "dark" : "light"); } catch { /* Theme still works without storage. */ }
   }
 
