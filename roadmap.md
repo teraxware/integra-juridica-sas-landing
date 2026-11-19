@@ -12,3 +12,7 @@
 - [x] Incorporar los logos originales y un menú adaptable en la parte superior.
 - [x] Usar el mensaje existente como título central sin duplicar el nombre del logo.
 - [x] Verificar navegación, menú al desplazarse y cifras en ambos temas y tamaños.
+
+# Simplificar menú de portada
+- [x] Sustituir la franja enmarcada por logo y navegación en una sola fila.
+- [x] Verificar el menú desplegable y la navegación en ambos temas y tamaños.
