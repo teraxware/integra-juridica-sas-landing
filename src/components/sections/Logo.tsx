@@ -1,26 +1,16 @@
 import { Link } from "@tanstack/react-router";
 import { site } from "@/content/site";
 import { cn } from "@/lib/utils";
+import horizontalLogo from "@/assets/integra-logo-horizontal.png.asset.json";
+import verticalLogo from "@/assets/integra-logo-vertical.png.asset.json";
 
-// PLACEHOLDER: reemplace este logo de texto por la imagen real de la firma.
-export function Logo({ inverted = false }: { inverted?: boolean }) {
+export function Logo({ inverted = false, cover = false }: { inverted?: boolean; cover?: boolean }) {
   return (
-    <Link to="/" className="flex shrink-0 items-center gap-3 whitespace-nowrap" aria-label={`${site.name}, inicio`}>
-      <span
-        aria-hidden="true"
-        className={cn(
-          "flex size-10 items-center justify-center rounded-full border-2 font-serif text-lg font-semibold",
-          inverted ? "border-brand-accent text-brand-accent" : "border-primary text-primary",
-        )}
-      >
-        IJ
-      </span>
-      <span className="flex flex-col leading-none">
-        <span className={cn("font-sans text-base font-semibold", inverted ? "text-brand-foreground" : "text-primary")}>
-          {site.shortName}
-        </span>
-        <span className="mt-1 text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-gold">SAS · Abogados</span>
-      </span>
+    <Link to="/" className={cn("flex shrink-0 items-center", inverted && "text-brand-foreground")} aria-label={site.homeLabel}>
+      {cover ? <picture>
+        <source media="(max-width: 639px)" srcSet={verticalLogo.url} />
+        <img src={horizontalLogo.url} alt={site.name} width={1920} height={594} className="hero-logo object-contain" />
+      </picture> : <img src={horizontalLogo.url} alt={site.name} width={1920} height={594} className="h-auto w-36 object-contain sm:w-44" />}
     </Link>
   );
 }

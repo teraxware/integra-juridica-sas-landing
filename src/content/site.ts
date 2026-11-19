@@ -3,6 +3,7 @@
 
 export const site = {
   name: "Integra Jurídica SAS",
+  homeLabel: "Integra Jurídica SAS, inicio",
   shortName: "Integra Jurídica",
   city: "[CIUDAD]", // PLACEHOLDER
   region: "[DEPARTAMENTO]", // PLACEHOLDER
@@ -25,13 +26,13 @@ export const header = {
   themeLight: "Activar modo claro",
   themeDark: "Activar modo oscuro",
   mainNav: "Principal",
+  coverNav: "Navegación de portada",
   mobileNav: "Menú móvil",
 };
 
 export const hero = {
   badge: `Abogados en ${site.city} - Colombia`, // PLACEHOLDER
-  title: "Integra Jurídica",
-  statement: "Claridad jurídica. Decisiones conscientes.",
+  title: "Claridad jurídica. Decisiones conscientes.",
   subtitle:
     "Orientamos a empresas y personas en asuntos comerciales, laborales, tributarios y contractuales, con explicaciones sencillas y costos conocidos desde el inicio.",
   primaryCta: "Consultar por WhatsApp",

@@ -7,3 +7,8 @@
 - [x] Integrar las cifras en la portada y centrar la composición.
 - [x] Mostrar el menú de inicio solo al desplazarse.
 - [x] Comprobar ambos modos y tamaños de pantalla.
+
+# Logo y navegación de portada
+- [x] Incorporar los logos originales y un menú adaptable en la parte superior.
+- [x] Usar el mensaje existente como título central sin duplicar el nombre del logo.
+- [x] Verificar navegación, menú al desplazarse y cifras en ambos temas y tamaños.

@@ -32,4 +32,4 @@ use the editor.
 - Theme colors are defined as semantic CSS tokens with a `.dark` override, so every section and legal page shares one theme.
 - The header theme control applies the root theme after hydration and stores only the display preference locally, preserving the static-site architecture.
 - Keep presentation text in `src/content/` and preserve the existing section sequence when redesigning the page.
-- The homepage hero contains its statistics in a viewport-height flex layout; its fixed header appears after scrolling, while legal pages retain their always-visible header.
+- The homepage hero contains its own navigation, original responsive logo and statistics in a viewport-height flex layout; the separate fixed header appears after scrolling, while legal pages retain their always-visible header, keeping the cover navigation distinct from reading navigation.

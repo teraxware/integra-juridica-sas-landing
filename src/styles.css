@@ -207,12 +207,15 @@
   background-color: var(--hero-veil);
 }
 
-.hero-name { max-width: none; line-height: 1.08; }
-.hero-layout { min-height: 100svh; padding-block: 5rem 2.5rem; gap: 2rem; }
-.hero-copy { padding-block: 1.5rem; }
+.hero-name { max-width: 46rem; line-height: 1.12; text-wrap: balance; }
+.hero-logo { width: 18rem; height: 5.57rem; }
+.hero-layout { min-height: 100svh; padding-block: 1.5rem 1.5rem; gap: 1rem; }
+.hero-copy { padding-block: 1rem; }
 .hero-stats { border-top: 1px solid var(--border); padding-top: 1.75rem; }
 @media (width < 40rem) {
-  .hero-layout { padding-block: 4.5rem 1rem; gap: 1rem; }
+  .hero-layout { padding-block: 1rem; gap: 0.75rem; }
+  .hero-logo { width: 6rem; height: 5.75rem; }
+  .hero-navigation { gap: 0.75rem; }
   .hero-copy { padding-block: 0; }
   .hero-name { margin-top: 1rem; }
   .hero-statement, .hero-description, .hero-note { margin-top: 0.75rem; }
@@ -221,15 +224,16 @@
   .hero-stats { padding-top: 1rem; }
 }
 @media (height < 750px) {
-  .hero-layout { padding-block: 4rem 1.25rem; gap: 1rem; }
+   .hero-layout { padding-block: 1rem; gap: 0.75rem; }
   .hero-copy { padding-block: 0; }
   .hero-name { margin-top: 1rem; }
   .hero-statement, .hero-description, .hero-note { margin-top: 1rem; }
   .hero-actions { margin-top: 1.25rem; }
 }
 @media (width < 40rem) and (height < 750px) {
-  .hero-layout { padding-block: 4.25rem 0.75rem; gap: 0.75rem; }
-  .hero-name { font-size: 2.5rem; margin-top: 0.75rem; }
+  .hero-layout { padding-block: 0.75rem; gap: 0.5rem; }
+  .hero-logo { width: 5rem; height: 4.8rem; }
+  .hero-name { font-size: 2rem; margin-top: 0.75rem; }
   .hero-statement, .hero-description, .hero-note { margin-top: 0.5rem; }
   .hero-actions { margin-top: 0.75rem; }
 }
